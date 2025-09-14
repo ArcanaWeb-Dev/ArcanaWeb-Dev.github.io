@@ -2,20 +2,51 @@
 body {
     font-family: VT323, monospace;
     font-size: 18px;
-    background-color: #000000;
-    color: #ffffff;
+    color: #00F264;
     text-align: center;
     padding: 50px;
+    margin: 0;
+    position: relative;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Video background */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 h1 {
     color: #00F264;
-    background-color: #000000;
+    background-color: transparent;
 }
+
 p{
     color: #00F264;
     text-decoration: none;
 }
+
 a {
     color: #00F264;
     text-decoration: none;
@@ -24,8 +55,6 @@ a {
 a:hover {
     text-decoration: bold;
 }
-
-
 
 /* Navigation Styles */
 .navigation {
@@ -36,12 +65,25 @@ a:hover {
     margin: 20px 0;
 }
 
+.founders-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.founder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .nav-button {
     padding: 15px 20px;
     background-color: #00ff00;
     color: black;
     text-decoration: none;
-    border-radius: 25px; /* More rounded corners */
+    border-radius: 25px;
     transition: all 0.3s ease;
     font-size: 1rem;
     border: 2px solid transparent;
@@ -56,14 +98,73 @@ a:hover {
 
 .nav-button:hover {
     background-color: #009c00;
-    transform: translateY(-3px) scale(1.05); /* Slightly scale up */
-    box-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00; /* Glow effect */
-    border: 2px solid #00ff00; /* Add a border on hover */
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 15px #00ff00, 0 0 25px #00ff00;
+    border: 2px solid #00ff00;
+}
+
+.nav-button1 {
+    padding: 15px 20px;
+    background-color: #9E0092;
+    color: black;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    border: 2px solid transparent;
+    width: 200px;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+    font-family: 'VT323', monospace;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.nav-button1:hover {
+    background-color: #ff00ea;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 15px #9E0092, 0 0 25px #9E0092;
+    border: 2px solid #9E0092;
+}
+
+.nav-button2 {
+    padding: 15px 20px;
+    background-color: #07C0F9;
+    color: black;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    border: 2px solid transparent;
+    width: 200px;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+    font-family: 'VT323', monospace;
+    opacity: 0;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.nav-button2:hover {
+    background-color: #008fbb;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 15px #07C0F9, 0 0 25px #07C0F9;
+    border: 2px solid #07C0F9;
 }
 
 .nav-button:active {
     transform: translateY(0) scale(1);
     box-shadow: none;
+}
+
+/* Additional navigation buttons */
+.additional-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 /* Fade-in Animation */
@@ -104,22 +205,23 @@ a:hover {
 
 /* Profile Image Styles */
 .profile-image1 {
-    width: 100px; /* Adjust size as needed */
-    height: 100px; /* Must match width for a perfect circle */
-    border-radius: 50%; /* Makes the image circular */
-    border: 3px solid #9E0092; /* Green border */
-    object-fit: cover; /* Ensures the image covers the circle without distortion */
-    margin-bottom: 20px; /* Space below the image */
-    box-shadow: 0 0 15px #9E0092, 0 0 25px #9E0092; /* Glow effect */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #9E0092;
+    object-fit: cover;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px #9E0092, 0 0 25px #9E0092;
 }
+
 .profile-image2 {
-    width: 100px; /* Adjust size as needed */
-    height: 100px; /* Must match width for a perfect circle */
-    border-radius: 50%; /* Makes the image circular */
-    border: 3px solid #07C0F9; /* Green border */
-    object-fit: cover; /* Ensures the image covers the circle without distortion */
-    margin-bottom: 20px; /* Space below the image */
-    box-shadow: 0 0 15px #07C0F9, 0 0 25px #07C0F9; /* Glow effect */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #07C0F9;
+    object-fit: cover;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px #07C0F9, 0 0 25px #07C0F9;
 }
 
 /* Center the header content */
@@ -127,7 +229,43 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #000000;
+    background-color: transparent;
     color: white;
     padding: 20px 0;
+}
+
+.ArcanaWebDevTitle{
+    width: 250px;
+    height: 150px;
+    border-radius: 20px;
+    border: 3px solid #ffffff;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px #ffffffcc, 0 0 25px #ffffffcc;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .founders-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    body {
+        padding: 30px 20px;
+    }
 }
